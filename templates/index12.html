@@ -1,0 +1,287 @@
+
+
+<!-- ------------------------------CSS Code ------------------------------------------------------ -->
+<html lang="en">
+
+<head>
+    <link href ="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel  = "icon">
+  <link href="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel = "apple-touch-icon">
+</head>
+<style>
+.img-preview {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    border: 5px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align : center
+}
+
+.img-preview>div {
+    width: 100%;
+    height: 100%;
+    background-size: 256px 256px;
+    background-repeat: no-repeat;
+    background-position: center;
+    align : center
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-label{
+    display: inline-block;
+    padding: 12px 30px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+    align : center
+}
+
+.upload-label:hover{
+    background: #34495E;
+    color: #39D2B4;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<!-- ------------------------------Base.html Code ------------------------------------------------------ -->
+<header id="header" class="fixed-top">
+    <title>Prediction</title>
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo"><img src="{{ url_for('static', filename ='/img/ddicon.jpg')}}"  alt="" class = "img-fluid"></a>
+      <h3 style= "color: #49b5e7"><b> WELCOME TO DROWSINESS DETECTION PROJECT!</b></h3>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a  href="/">Home</a></li>
+          <li><a  href="/">Predict</a></li>
+          <li><a href="/howitworks">How it works</a></li>
+          <li><a href="/knowmore">Know More</a></li>
+          <li><a  href="/">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drowsiness Detection</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename ='vendor/bootstrap/css/bootstrap.min.css')}}" >
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'vendor/bootstrap-icons/bootstrap-icons.css')}}" >
+  <link href="{{ url_for('static', filename ='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename ='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+
+
+
+<body>
+<!-- ------------------------------JavaScript Code ------------------------------------------------------ -->
+
+<script>
+    $(document).ready(function () {
+    // Init
+    $('.image-section').hide();
+    $('.loader').hide();
+    $('#result').hide();
+
+    // Upload Preview
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                $('#imagePreview').hide();
+                $('#imagePreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imageUpload").change(function () {
+        $('.image-section').show();
+        $('#btn-predict').show();
+        $('#result').text('');
+        $('#result').hide();
+        readURL(this);
+    });
+
+    // Predict
+    $('#btn-predict').click(function () {
+        var form_data = new FormData($('#upload-file')[0]);
+
+        // Show loading animation
+        $(this).hide();
+        $('.loader').show();
+
+        // Make prediction by calling api /predict
+        $.ajax({
+            type: 'POST',
+            url: '/predict',
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            async: true,
+            success: function (data) {
+                // Get and display the result
+                $('.loader').hide();
+                $('#result').fadeIn(600);
+                $('#result').text(' Prediction :  ' + data);
+                console.log('Success!');
+            },
+        });
+    });
+
+});
+
+</script>
+
+</body>
+
+<footer>
+    <script src="/static/js/main.js" type="text/javascript"></script>
+</footer>
+
+<!-- </html> Changed -->
+
+<!-- ------------------------------Index Code ------------------------------------------------------ -->
+<br>
+<br><br><br><br>
+<center><h2>Predict whether the Driver is Alert or Drowsy!</h2></center>
+
+<div><center>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose a file...
+        </label>
+
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg"> <!--file -->
+
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <!-- Predict Button -->
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
+
+
+</center>
+</div>
+<!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Drowsiness Dectection</h3>
+            <p>
+              P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park,<br>
+               Hinjawadi, Pune,<br>
+               Maharashtra 411057 <br><br>
+              <strong>Phone:</strong> +91 1234567890<br>
+              <strong>Email:</strong> isquareit@gamil.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks, follow us!</h4>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Drowsiness Dectection</span></strong>. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename = 'js/main.js')}}"></script>
+
+</html>

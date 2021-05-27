@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href ="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel  = "icon">
+  <link href="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel = "apple-touch-icon">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>How It Works</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+  <link href ="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel  = "icon">
+  <link href="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel = "apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+
+   <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename ='vendor/bootstrap/css/bootstrap.min.css')}}" >
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'vendor/bootstrap-icons/bootstrap-icons.css')}}" >
+  <link href="{{ url_for('static', filename ='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename ='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+</head>
+
+<style>
+/*--------------------------------------------------------------
+# Title Section
+--------------------------------------------------------------*/
+#title {
+  width: 100%;
+  height: 30vh;
+  background: #f9f9f9;
+}
+
+#title .container {
+  padding-top: 84px;
+}
+
+#title h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #0f394c;
+
+}
+
+</style>
+
+
+<body style=" background: #f9f9f9;">
+
+   <!-- ======= Header ======= -->
+  
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+<a href="/" class="logo"><img src="{{ url_for('static', filename ='/img/ddicon.jpg')}}"  alt="" class = "img-fluid"></a>
+      <h3 style= "color: #49b5e7"><b> WELCOME TO DROWSINESS DETECTION PROJECT!</b></h3>      <!-- Uncomment below if you prefer to use text as a logo -->
+      <!-- <h1 class="logo"><a href="index.html">Butterfly</a></h1> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+			<li><a href="/">Home</a></li>
+          <li><a  href="/">Predict</a></li>
+          <li><a  href="#">How it works</a></li>
+          <li><a  href="/knowmore">Know More</a></li>
+          <li><a  href="/">Team</a></li>
+          <li><a class="nav-link scrollto" href="#">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+
+ <!-- ======= Title ======= -->
+<section id="title" >
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>How It Works</h1>   
+        </div>
+      </div>
+
+    </div>
+
+  </section><!-- End Title -->
+  <br>
+  
+ <!-- ======= Steps ======= --> 
+
+ <div class="container">
+<!-- List group -->
+<div class="row">
+  <div class="col-4">
+	<div class="list-group" id="myList" role="tablist">
+		<a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab"><h4>Step 1</h4></a><br><br>
+		<a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab"><h4>Step 2</h4></a><br><br>
+		<a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab"><h4>Step 3</h4></a><br><br>
+	</div>
+  </div>
+
+
+<!-- Tab panes -->
+<div class="col-8">
+<div class="tab-content">
+  <div class="tab-pane active" id="home" role="tabpanel" style = "align:middle"><br><h4><b>Capture a photo</b></h4><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets5.lottiefiles.com/datafiles/YXEvZmE2IpDaoGc/data.json"  background="transparent"  speed="1"  style="position:relative;top:-400px;width: 800px; height: 800px;"  loop  autoplay></lottie-player></div>
+  <div class="tab-pane" id="profile" role="tabpanel"><br><h4><b>Upload a photo</b></h4><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_GxMZME.json"  background="transparent"  speed="1"  style="position:relative;top:-250px;left:200px;width: 500px; height: 500px;"  loop  autoplay></lottie-player></div>
+  <div class="tab-pane" id="messages" role="tabpanel"><br><h4><b>Predicts if the driver <br>is drowsy or not!</b></h4><img src = "/static/img/drowsy.jpeg" style="position:relative;top:-100px;left:300px;width: 626px; height: 363px;" alt=""></div>
+</div>
+</div>
+</div>
+<!-- End Steps -->
+
+<br><br><br>
+ <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Drowsiness Dectection</h3>
+            <p>
+              P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park,<br>
+               Hinjawadi, Pune,<br>
+               Maharashtra 411057 <br><br>
+              <strong>Phone:</strong> +91 1234567890<br>
+              <strong>Email:</strong> isquareit@gamil.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+           
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Drowsiness Dectection</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+   <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename = 'js/main.js')}}"></script>
+
+</div>
+</body>
+</html>
+
+
+
+

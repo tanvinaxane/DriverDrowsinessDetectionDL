@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Drowsiness Dectection</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href ="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel  = "icon">
+  <link href="{{ url_for('static', filename ='/img/ddicon.jpg')}}" rel = "apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename ='vendor/bootstrap/css/bootstrap.min.css')}}" >
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'vendor/bootstrap-icons/bootstrap-icons.css')}}" >
+  <link href="{{ url_for('static', filename ='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename ='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+
+</head>
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo"><img src="{{ url_for('static', filename ='/img/ddicon.jpg')}}"  alt="" class = "img-fluid"></a>
+      <h3 style= "color: #49b5e7"><b> WELCOME TO DROWSINESS DETECTION PROJECT!</b></h3>
+      <!-- Uncomment below if you prefer to use text as a logo -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="Homepage.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#counts">Predict</a></li>
+          <li><a href="/howitworks">How it works</a></li>
+          <li><a href="/knowmore">Know More</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- ======= Hero Section ======= -->
+<body>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Neural Network Based Driver Drowsiness Detection.</h1>
+  
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 frontendimg2">
+         <img src="{{ url_for('static', filename = '/img/frontendimg2.jpeg')}}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 d-flex justify-content-center video-box align-items-stretch position-relative">
+            <img src="{{ url_for('static', filename = 'img/frontendimg.jpg')}}" alt="" style="width:500px;height:700px">
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Introduction</h3>
+            
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Aim of our Project</a></h4>
+              <p class="description">To design a system capable of capturing images and predicting whether the subject (driver) is drowsy or alert and notify the driver by bussing an alarm as soon as the driver is found drowsy.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Project Objective</a></h4>
+              <p class="description">To ensure driver’s safety and prevent of loss of life. Avoiding damage to road property. To save loss of goods and money invested in it and mainly to prevent road accidents.
+</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Motivation</a></h4>
+              <p class="description">
+				
+             Driver drowsiness has been one of the major causes of road accidents and can lead to severe physical injuries, deaths and significant economic losses. With motivation to avoid/prevent road accidents, this project involves ensuring driver's safety and preventing loss of life and goods.
+                    <b>“To save a life is a real and beautiful thing”</b><br>
+                        - Vincent Van Gogh
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+  </main>
+  
+   <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="text-center title">
+          <h3>Test it out!</h3>
+          
+        </div>
+
+        <div class="row counters position-relative">
+
+          <div class="col-lg-3 col-6 text-center">
+           
+            <p></p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <p><b>Classify drowsy or alert</b></p>
+			<div><a href="/prediction" class="btn-get-started but">Predict</a></div>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <p><b>Live Testing</b></p>
+			<div><a href="/livetest" class="btn-get-started but">Test</a></div>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            
+            <p></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename = 'img/team/team-4.jpg')}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Tanvi Naxane</h4>
+                <span>Co- founder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                 <img src="{{ url_for('static', filename = 'img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sayli Shrungare</h4>
+                <span>Co-founder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename = 'img/team/team-3.jpg')}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Shraddha Bhandarkar</h4>
+                <span>Co-founder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                  <img src="{{ url_for('static', filename = 'img/team/team-2.jpg')}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Shivani Rajhance</h4>
+                <span>Co-founder</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+	
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact Us!</h2>
+          
+        </div>
+
+        <div>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.75859948837!2d73.73558811462242!3d18.584918887371582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbc155555555%3A0x96e2c1d4669940e9!2sInternational%20Institute%20of%20Information%20Technology%20(I%20Square%20IT)!5e0!3m2!1sen!2sin!4v1616227488022!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+		</div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park, Hinjawadi, Pune, Maharashtra 411057</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>tanvinaxane@gmail.com</p>
+                <p>saylishrungare07@gmail.com</p>
+                <p>shraddhabhandarkar3@gmail.com</p>
+                <p>shivanirajhance12@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call us on:</h4>
+                <p>+91 1234567890</p>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+	
+	 <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Drowsiness Dectection</h3>
+            <p>
+              P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park,<br>
+               Hinjawadi, Pune,<br>
+               Maharashtra 411057 <br><br>
+              <strong>Phone:</strong> +91 1234567890<br>
+              <strong>Email:</strong> isquareit@gamil.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+           
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks, follow us!</h4>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Drowsiness Dectection</span></strong>. All Rights Reserved.
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename = 'js/main.js')}}"></script>
+
+</body>
+</html>
